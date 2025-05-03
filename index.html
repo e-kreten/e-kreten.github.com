@@ -56,19 +56,44 @@ function closemklinkModal() {
 
   const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   const htmlContent = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>E-KRETÉN Share</title>
-    </head>
-    <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-      <h1><a href="https://e-kreten.github.io">E-KRETÉN</a></h1>
-      <p>Someone shared you a long link. Click the button below to open it:</p>
-      <a href="${target}" target="_blank">
-        <button style="padding: 10px 20px; font-size: 16px;">Open Link</button>
-      </a>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>KRETÉN - Hyperlink</title>
+    <link rel="stylesheet" href="https://e-kreten.github.io/src/default_hyperlink_style.css">
+    <script>
+        function open_shared_link () {
+            window.location.href = '${target}'; 
+        }
+        </script>
+</head>
+<body>
+    <div class="logo-header">
+        <img src="https://e-kreten.github.io/src/logo.png" alt="KRETÉN Logo">
+      </div>
+        <div class="container">
+            <div class="header" id="title">
+                Hyperlink - Small Link
+            </div>
+            <div class="content">
+            <p class="bold">Valaki Megosztott vele egy hosszú linket<br>Az alábbi gombal ezt eltudja érni!</p>
+           <div class="content2"> 
+            <button class="button" onclick="open_shared_link()">Megosztott oldal megnyitása</button>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <footer>
+            <p>
+                <a href="https://github.com/e-kreten/e-kreten.github.io/" class="hyperlink">Az oldal forráskódja</a> &nbsp;&nbsp;•&nbsp;&nbsp;
+                Készült 🍊 megbízásából, 12 Mrd ft közpénzből
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
   `.trim();
 
   // Encode content to base64
