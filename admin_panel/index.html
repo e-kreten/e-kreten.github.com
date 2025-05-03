@@ -18,6 +18,9 @@
 
     }, 3000); // Simulated deletion delay
   }
+        function backtosigning () {
+            window.location.href = 'https://e-kreten.github.io/'; 
+        }
         </script>
 </head>
 <body>
@@ -31,7 +34,7 @@
             <div class="content">
                 <button class="btn blue">.env fájl megtekintése</button>
                 <button class="btn red" onclick="startDelete()">Egész adatbázis törlése</button>
-                <button class="btn blue">Vissza a bejelentkezéshez</button>
+                <button class="btn blue" onclick="backtosignin()">Vissza a bejelentkezéshez</button>
                 <div class="loading-box" id="loadingBox">
                     <p>Adatbázis törlése folyamatban...</p>
                     <div class="spinner"></div>
