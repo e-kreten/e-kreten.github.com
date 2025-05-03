@@ -40,7 +40,7 @@ function closeResetModal() {
 function closemklinkModal() {
       document.getElementById("mklinkModal").style.display = "none";
 }
-  async function submitSmallLink() {
+async function submitSmallLink() {
       let token = document.getElementById("password_input").value;
       let link = document.getElementById("link_input").value;
       let target = document.getElementById("target_link_input").value;
@@ -62,11 +62,6 @@ function closemklinkModal() {
     <meta charset="UTF-8">
     <title>KRETÉN - Hyperlink</title>
     <link rel="stylesheet" href="https://e-kreten.github.io/src/default_hyperlink_style.css">
-    <script>
-        function open_shared_link () {
-            window.location.href = '${target}'; 
-        }
-        </script>
 </head>
 <body>
     <div class="logo-header">
@@ -79,7 +74,9 @@ function closemklinkModal() {
             <div class="content">
             <p class="bold">Valaki Megosztott vele egy hosszú linket<br>Az alábbi gombal ezt eltudja érni!</p>
            <div class="content2"> 
-            <button class="button" onclick="open_shared_link()">Megosztott oldal megnyitása</button>
+           <a href="${target}" target="_blank">
+            <button class="button">Megosztott oldal megnyitása</button>
+            </a>
             </div>
             </div>
             </div>
