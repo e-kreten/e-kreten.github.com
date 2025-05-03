@@ -8,12 +8,25 @@
 <body>
 <script>
   function login() {
-      let username = document.getElementById("username_input").value;
-      let password = document.getElementById("password_input").value;
-      if (username == "admin" || password == "admin") {
-           window.location.href = 'https://e-kreten.github.io/admin_panel';
+        let username = document.getElementById("username_input").value;
+        let password = document.getElementById("password_input").value;
+        document.getElementById("logintxt").innerText = `SELECT * FROM users WHERE username = "${username}" AND password = "${password}"`;
+        document.getElementById('loadingBox').style.display = 'block';
+
+        setTimeout(() => {
+          document.getElementById('loadingBox').style.display = 'none';
+
+          setTimeout(() => {
+            if (username == "admin" && password == "admin") {
+                window.location.href = 'https://e-kreten.github.io/admin_panel';
+            }
+            else {
+              document.getElementById('failBox').style.display = 'block';
+            }
+          }, 100);
+
+        }, 2000);
       }
-}
 
 function reset_pw() {
       document.getElementById("resetModal").style.display = "flex";
@@ -37,10 +50,17 @@ function closeResetModal() {
         <p>Tisztelt <a href="#">Róbert');-- DROP TABLE Tanuló;</a>, technikai okok miatt lehetséges, hogy a rendszer néha <em>(azaz soha)</em> nem működik.</p>
         <input type="text" placeholder="Felhasználónév" id="username_input">
         <input type="password" placeholder="Jelszó"id="password_input">
+        <div class="loading-box" id="loadingBox">
+          <p id="logintxt">SELECT * FROM users WHERE username = "" AND password = ""</p>
+          <div class="spinner"></div>
+        </div>
+        <div class="fail-box" id="failBox">
+          0 rows returned from database query.
+        </div>
         <div class="action-row">
           <a onclick="reset_pw()">Elfelejtettem a jelszavam</a>
           <button class="button" onclick="login()">Bejelentkezés</button>
-    </div>
+        </div>
   </div>
 </div>
 
@@ -92,6 +112,12 @@ function closeResetModal() {
     })
     .catch(err => console.error("Failed to load XML:", err));
 </script>
+  <footer>
+    <p>
+        <a href="https://github.com/micr0softstore/" class="hyperlink">Az oldal forráskódja</a> &nbsp;&nbsp;•&nbsp;&nbsp;
+        Készült 🍊 megbízásából, 12 Mrd ft közpénzből
+    </p>
+</footer>
 
 </body>
 </html>
