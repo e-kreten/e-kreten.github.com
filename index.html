@@ -77,20 +77,21 @@ function closeResetModal() {
   </div>
 
   <!-- Embedded XML with words -->
-  <script type="text/xml" src="https://e-kreten.github.io/src/DirtyWords.xml" id="dirtyWordsData"></script>
   <script>
-    // Parse embedded XML and pick 3 random words
-    const xmlText = document.getElementById("dirtyWordsData").textContent;
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlText, "text/xml");
-    const words = Array.from(xml.getElementsByTagName('word')).map(el => el.textContent.trim());
+  fetch("https://e-kreten.github.io/src/DirtyWords.xml")
+    .then(response => response.text())
+    .then(str => (new DOMParser()).parseFromString(str, "text/xml"))
+    .then(xml => {
+      const words = Array.from(xml.getElementsByTagName('word')).map(el => el.textContent.trim());
 
-    if (words.length >= 3) {
-      const shuffled = words.sort(() => 0.5 - Math.random());
-      const [w1, w2, w3] = shuffled;
-      document.getElementById("title").innerText = `Mit akarsz te kis ${w1} ${w2} ${w3}?`;
-    }
-  </script>
+      if (words.length >= 3) {
+        const shuffled = words.sort(() => 0.5 - Math.random());
+        const [w1, w2, w3] = shuffled;
+        document.getElementById("title").innerText = `Mit akarsz te kis ${w1} ${w2} ${w3}?`;
+      }
+    })
+    .catch(err => console.error("Failed to load XML:", err));
+</script>
 
 </body>
 </html>
