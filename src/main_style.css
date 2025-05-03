@@ -1,4 +1,4 @@
-        * {
+* {
       box-sizing: border-box;
     }
     body {
@@ -9,7 +9,7 @@
       padding: 0;
     }
     .container {
-      max-width: 500px;
+      max-width: 600px;
       margin: 100px auto;
       background: white;
       border-radius: 5px;
@@ -136,6 +136,52 @@
   height: 30px;
   animation: spin 1s linear infinite;
   margin: 0 auto 16px;
+}
+.loading-box, .fail-box {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .loading-box {
+      background: #f8fdfd;
+      border: 1px solid #ccc;
+    }
+
+    .fail-box {
+      background-color: rgb(248, 215, 218);
+      border: 1px solid rgb(245, 198, 203);
+      color: rgb(231, 76, 60);
+      text-align:center;
+      align-items: center;
+    }
+    .spinner {
+      border: 5px solid #eee;
+      border-top: 5px solid #00bcd4;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    .hyperlink {
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: none;
+    }
+
+    footer {
+    font-size: 14px;
+    color: #ccc;
+    align-items: center;
+    text-align: center;
+    position: fixed; /* or absolute */
+    bottom: 20px;    /* distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 10px;
 }
 
 @keyframes spin {
