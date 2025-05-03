@@ -26,6 +26,12 @@
       padding: 20px;
       font-size: 14px;
     }
+    .content2 {
+      padding: 20px;
+      font-size: 14px;
+      align-items: center;
+      text-align: center;
+    }
     .content a {
       color: #1fb4d9;
       text-decoration: none;
@@ -169,6 +175,15 @@
     font-size: 14px;
     color: #ccc;
     text-decoration: none;
+    }
+
+    .success-box {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 6px;
+      background: #d1f3d1;
+      color: #1c421c;
     }
 
     footer {
