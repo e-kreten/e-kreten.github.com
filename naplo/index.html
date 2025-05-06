@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRETÉN Napló - Bejelentkezés</title>
+  <link rel="stylesheet" href="https://e-kreten.github.io/src/naplo_login_style.css">
+</head>
+<body>
+  <div class="animated-bg" id="background"></div>
+
+  <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+  <div class="settings-panel" id="settingsPanel">
+    <label for="color1">Szín 1:</label>
+    <input type="color" id="color1" value="#3e8ef7" onchange="updateColors()"><br>
+    <label for="color2">Szín 2:</label>
+    <input type="color" id="color2" value="#6c5ce7" onchange="updateColors()">
+  </div>
+
+  <div class="login-box">
+    <div class="logo-header">
+        <img src="https://e-kreten.github.io/src/logo-dark.png" alt="KRETÉN Logo">
+    </div>
+    <h2>Bejelentkezés</h2>
+    <label for="institution">Intézmény</label>
+    <select id="institution">
+      <option value="">-- Válassz intézményt --</option>
+      <option value="iskola1">Iskola 1</option>
+      <option value="iskola2">Iskola 2</option>
+      <option value="iskola3">Iskola 3</option>
+    </select>
+
+    <label for="username">Felhasználónév</label>
+    <input type="text" id="username" placeholder="Add meg a felhasználóneved">
+
+    <label for="password">Jelszó</label>
+    <input type="password" id="password" placeholder="Add meg a jelszavad">
+
+    <button onclick="login()">Bejelentkezés</button>
+  </div>
+
+  <script>
+    function login() {
+      const institution = document.getElementById('institution').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (!institution || !username || !password) {
+        alert("Kérlek, tölts ki minden mezőt!");
+        return;
+      }
+
+      alert(`Bejelentkezés: ${institution}, ${username}`);
+    }
+
+    function toggleSettings() {
+      const panel = document.getElementById('settingsPanel');
+      panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+    }
+    function updateColors() {
+    const color1 = document.getElementById('color1').value;
+    const color2 = document.getElementById('color2').value;
+    document.documentElement.style.setProperty('--color1', color1);
+    document.documentElement.style.setProperty('--color2', color2);
+    
+    // Mentsd el localStorage-be
+    localStorage.setItem('bgColor1', color1);
+    localStorage.setItem('bgColor2', color2);
+    }
+    window.onload = function () {
+    const savedColor1 = localStorage.getItem('bgColor1');
+    const savedColor2 = localStorage.getItem('bgColor2');
+
+    if (savedColor1 && savedColor2) {
+        document.documentElement.style.setProperty('--color1', savedColor1);
+        document.documentElement.style.setProperty('--color2', savedColor2);
+        document.getElementById('color1').value = savedColor1;
+        document.getElementById('color2').value = savedColor2;
+    }
+    };
+  </script>
+</body>
+</html>
