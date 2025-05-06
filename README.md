@@ -5,4 +5,7 @@
     Remade By: https://github.com/micr0softstore
 
     Website on: https://e-kreten.github.io/
+    Beta Naplo on: https://e-kreten.github.io/naplo
+      -> Please note that its under developement and its not working yet! Drop a ✨ 
+      	 if you like the design
     (Original On): https://ekreten.hu/
