@@ -14,12 +14,14 @@
     <label for="color1">Szín 1:</label>
     <input type="color" id="color1" value="#3e8ef7" onchange="updateColors()"><br>
     <label for="color2">Szín 2:</label>
-    <input type="color" id="color2" value="#6c5ce7" onchange="updateColors()">
+    <input type="color" id="color2" value="#6c5ce7" onchange="updateColors()"><br>
+    <label for="theme">Téma</label>
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme">🌓</button>
   </div>
 
   <div class="login-box">
     <div class="logo-header">
-        <img src="https://e-kreten.github.io/src/logo-dark.png" alt="KRETÉN Logo">
+        <img id="logo" src="https://e-kreten.github.io/src/logo-dark.png" alt="KRETÉN Logo">
     </div>
     <h2>Bejelentkezés</h2>
     <label for="institution">Intézmény</label>
@@ -78,6 +80,38 @@
         document.getElementById('color2').value = savedColor2;
     }
     };
+    function toggleTheme() {
+    const current = document.body.classList.contains("dark") ? "light" : "dark";
+    setTheme(current);
+  }
+
+  function setTheme(theme) {
+    document.body.classList.remove("light", "dark");
+    document.body.classList.add(theme);
+    localStorage.setItem("theme", theme);
+
+    const logo = document.getElementById("logo");
+    if (theme === "dark") {
+      logo.src = "https://e-kreten.github.io/src/logo.png";
+    } else {
+      logo.src = "https://e-kreten.github.io/src/logo-dark.png";
+    }
+  }
+
+  window.onload = function () {
+    const savedColor1 = localStorage.getItem('bgColor1');
+    const savedColor2 = localStorage.getItem('bgColor2');
+    const savedTheme = localStorage.getItem("theme") || "light";
+
+    if (savedColor1 && savedColor2) {
+      document.documentElement.style.setProperty('--color1', savedColor1);
+      document.documentElement.style.setProperty('--color2', savedColor2);
+      document.getElementById('color1').value = savedColor1;
+      document.getElementById('color2').value = savedColor2;
+    }
+
+    setTheme(savedTheme);
+  };
   </script>
 </body>
 </html>
