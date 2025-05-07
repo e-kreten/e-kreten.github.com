@@ -1,4 +1,4 @@
-* {
+  	* {
       box-sizing: border-box;
     }
 
@@ -146,4 +146,4 @@ body.dark .settings-panel {
   }
  body.dark .login-box h2 {
   color: #eee;
-          }
+}
