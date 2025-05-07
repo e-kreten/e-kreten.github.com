@@ -44,6 +44,12 @@
       const panel = document.getElementById("settingsPanel");
       panel.style.display = panel.style.display === "block" ? "none" : "block";
     }
+    function logout() {
+    	localStorage.removeItem('local_usr');
+      	localStorage.removeItem('local_pw');
+      	localStorage.removeItem('local_institution');
+    	window.location.href = "https://e-kreten.github.io/naplo/login";
+    }
 
     function applySettings() {
       const url = document.getElementById("bgUrl").value.trim();
