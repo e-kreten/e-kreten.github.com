@@ -46,13 +46,7 @@
       const institution = document.getElementById('institution').value;
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-      const local_usr = localStorage.getItem("local_usr");
-      const local_pw = localStorage.getItem("local_pw");
-      const local_institution = localStorage.getItem("local_institution");
-
-      if (local_usr && local_pw && local_institution) {
-        window.location.href = "https://e-kreten.github.io/naplo";
-      }
+      
 
       if (!institution || !username || !password) {
         alert("Kérlek, tölts ki minden mezőt!");
@@ -121,6 +115,13 @@
     const savedColor1 = localStorage.getItem('bgColor1');
     const savedColor2 = localStorage.getItem('bgColor2');
     const savedTheme = localStorage.getItem("theme") || "light";
+    const local_usr = localStorage.getItem("local_usr");
+    const local_pw = localStorage.getItem("local_pw");
+    const local_institution = localStorage.getItem("local_institution");
+
+    if (local_usr && local_pw && local_institution) {
+        window.location.href = "https://e-kreten.github.io/naplo";
+    }
 
     if (savedColor1 && savedColor2) {
       document.documentElement.style.setProperty('--color1', savedColor1);
