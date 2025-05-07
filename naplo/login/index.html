@@ -53,6 +53,9 @@
       }
 
       alert(`Bejelentkezés: ${institution}, ${username}`);
+      localStorage.setItem('local_usr', username);
+      localStorage.setItem('local_pw', password);
+      localStorage.setItem('local_institution', institution);
     }
 
     function toggleSettings() {
