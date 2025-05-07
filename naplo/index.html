@@ -81,6 +81,12 @@
     const url = localStorage.getItem("bgImage") || "https://picsum.photos/1920/1080?blur=5";
     const blur = localStorage.getItem("bgBlur") || "10";
     const theme = localStorage.getItem("theme") || "light";
+    const local_usr = localStorage.getItem("local_usr");
+    const local_pw = localStorage.getItem("local_pw");
+    const local_institution = localStorage.getItem("local_instituiton");
+    if (!local_pw || !local_usr || local_institution) {
+    	window.location.href = "https://e-kreten.github.io/naplo/login";
+  }
 
     document.getElementById("bg").style.backgroundImage = `url(${url})`;
     document.documentElement.style.setProperty('--blur-amount', `${blur}px`);
