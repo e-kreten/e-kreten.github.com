@@ -31,7 +31,7 @@
     }
 
     .login-box {
-      position: relative;
+      position: absolute;
       z-index: 1;
       background: rgba(255, 255, 255, 0.9);
       padding: 40px;
@@ -39,9 +39,11 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       width: 100%;
       max-width: 400px;
-      margin: auto;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-50%, -50%);
+      left: 50%;
+      margin: 0;
+      
     }
 
     .login-box h2 {
@@ -107,10 +109,12 @@
       display: none;
       z-index: 2;
     }
-    .logo-header {
+    .logo-header img {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 180px;
+    height: auto;
 }
 body.light .login-box,
 body.light .settings-panel {
